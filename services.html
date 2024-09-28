@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    <style>
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+       body {
+            font-family: 'Arial', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #f4f4f4;
+        }
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+.logo img {
+    width: 100px;
+}
+
+nav button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+main {
+    text-align: center;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.service {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 300px;
+    margin: 10px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.service:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.service img {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.service h2 {
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .services {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+/* Header */
+        header {
+            background-color: white;
+            color: black;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #0059b3; /* Logo color */
+        }
+
+        nav {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            margin: 10px 0;
+        }
+         nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li {
+            position: relative; /* Required for the pin indicator */
+        }
+
+        nav ul li a {
+            color: #0059b3;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 10px 15px;
+            transition: background 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+
+        /* Pin style for active ul element */
+        nav ul li.active a::after {
+            content: "";
+            font-size: 1em;
+            margin-left: 5px;
+            color: #0059b3; /* Pin color */
+        }
+
+        /* Search Bar */
+        .search-bar {
+            display: flex;
+            align-items: center;
+            margin-top: 10px; /* Added margin for spacing */
+        }
+
+        .search-bar input {
+            padding: 8px 12px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 5px;
+            width: 200px; /* Initial width */
+        }
+
+        .search-bar button {
+            background-color: #0059b3;
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .search-bar button:hover {
+            background-color: #003d73;
+        }
+        .slider {
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+        }
+
+        .slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease; /* Smooth transition for effects */
+        }
+ /* Intro Section */
+        .intro {
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px 10px; /* Add margin for spacing */
+            border-radius: 10px; /* Rounded corners */
+        }
+
+        .intro h1 {
+            margin-bottom: 10px;
+            font-size: 2em;
+            color: #333; /* Darker color for the heading */
+        }
+
+        .intro p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555; /* Lighter text color */
+        }
+        
+</style>
+</head>
+<body>
+    <header>
+    <div class="logo">
+        <a href="#" style="text-decoration: none;">GovPortal</a>
+    </div>
+
+    <nav>
+        <ul id="nav-list">
+            <li class="active"><a href="index.html" target="contentFrame">Scheme Information</a></li>
+            <li><a href="services.html" target="contentFrame">Application Process</a></li>
+            
+        </ul>
+    </nav>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" placeholder="Search..." />
+        <button>Search</button>
+    </div>
+</header>
+<section class="intro">
+    <h1>Welcome to the Government Scheme Portal</h1>
+    <p>Find out more about various government schemes, eligibility criteria, and application processes to benefit from social services and financial support programs.</p>
+</section> 
+<!-- Slider Section -->
+<img src="images\IMG-20240928-WA0003.jpg" width="100%">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Scheme Portal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <h1>Our Services</h1>
+        <section class="services">
+            <div class="service">
+                <img src="aadhar card.png" alt="Auto Repair">
+                <h2>Aadhar Card </h2>
+                <a href="https://uidai.gov.in/images/Form_1_Eng.pdf" class="learn-more">Learn More</a>
+            </div>
+            <div class="service">
+                <img src="pan.png" alt="Auto Repair">
+                <h2>Pan Card</h2>
+                <a href="https://www.protean-tinpan.com/downloads/pan/download/Form_49A.PDF" class="learn-more">Learn More</a>
+            </div>
+             <div class="service">
+                <img src="license.png" alt="Driver's License">
+                <h2>Driver's License</h2>
+                
+                <a href="https://parivahan.gov.in/parivahan/sites/default/files/DownloadForm/form4.pdf" class="learn-more">Learn More</a>
+            </div>
+            <div class="service">
+                <img src="Indian_Passport.png" height="80px" alt="Passport">
+                <h2>Passport</h2>
+                
+                <a href="https://passportindia.gov.in/AppOnlineProject/online/printForm" class="learn-more">Learn More</a>
+            </div>
+                 <div class="service">
+            <img src="images\voter.png" alt="Voter ID">
+            <h2>Voter ID</h2>
+            <a href="https://voters.eci.gov.in/" class="learn">Learn More</a>
+        </div>
+                
+                <div class="service">
+            <img src="images\rationcard.png" alt="Ration Card">
+            <h2>Ration Card</h2>
+            <a href="https://controllerofrationing-mumbai.gov.in/scheme/onorc-one-nation-one-ration-card/" class="learn-more">Learn More</a>
+        </div>
+        <div class="service">
+            <img src="images\mrgcer.png" alt="Marriage Certificate">
+            <h2>Marriage Certificate</h2>
+            <a href="https://services.india.gov.in/service/detail/online-application-of-marriage-certificate-1" class="learn-more">Learn More</a>
+        </div>
+        <div class="service">
+            <img src="images\birth.png" alt="Birth Certificate">
+            <h2>Birth Certificate</h2>
+            <a href="https://eolakh.gujarat.gov.in/" class="learn-more">Learn More</a>
+        </div>
+        <div class="service">
+            <img src="images\death.png" alt="Death Certificate">
+            <h2>Death Certificate</h2>
+            <a href="https://eolakh.gujarat.gov.in/" class="learn-more">Learn More</a>
+        </div>
+        <div class="service">
+            <img src="images\skill.png" alt="Skill Development Certificate">
+            <h2>Skill Development Certificate</h2>
+            <a href="https://www.msde.gov.in/" class="learn-more">Learn More</a>
+        </div>
+        <div class="service">
+            <img src="images\pension.png" alt="Pension Scheme">
+            <h2>Pension Scheme</h2>
+            <a href="https://cybertreasury.gujarat.gov.in/" class="learn-more">Learn More</a>
+        </div>
+        <div class="service">
+            <img src="images\farmers.png" alt="Farmers Scheme">
+            <h2>Farmers Scheme</h2>
+            <a href="https://ikhedut.gujarat.gov.in/" class="learn-more">Learn More</a>
+        </div>
+        <div class="service">
+            <img src="images\health.png" alt="Health Scheme">
+            <h2>Health Scheme</h2>
+            <a href="https://gujhealth.gujarat.gov.in/" class="learn-more">Learn More</a>
+        </div>
+        <div class="service">
+            <img src="images\education.png" alt="Education Scheme">
+            <h2>Education Scheme</h2>
+            <a href="https://gcert.gujarat.gov.in/gcert/" class="learn-more">Learn More</a>
+        </div>
+    </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,891 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Scheme Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #f4f4f4;
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            color: black;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #0059b3; /* Logo color */
+        }
+
+        nav {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            margin: 10px 0;
+        }
+         nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li {
+            position: relative; /* Required for the pin indicator */
+        }
+
+        nav ul li a {
+            color: #0059b3;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 10px 15px;
+            transition: background 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+
+        /* Pin style for active ul element */
+        nav ul li.active a::after {
+            content: "";
+            font-size: 1em;
+            margin-left: 5px;
+            color: #0059b3; /* Pin color */
+        }
+
+        /* Search Bar */
+        .search-bar {
+            display: flex;
+            align-items: center;
+            margin-top: 10px; /* Added margin for spacing */
+        }
+
+        .search-bar input {
+            padding: 8px 12px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 5px;
+            width: 200px; /* Initial width */
+        }
+
+        .search-bar button {
+            background-color: #0059b3;
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .search-bar button:hover {
+            background-color: #003d73;
+        }
+        .slider {
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+        }
+
+        .slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease; /* Smooth transition for effects */
+        }
+ /* Intro Section */
+        .intro {
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px 10px; /* Add margin for spacing */
+            border-radius: 10px; /* Rounded corners */
+        }
+
+        .intro h1 {
+            margin-bottom: 10px;
+            font-size: 2em;
+            color: #333; /* Darker color for the heading */
+        }
+
+        .intro p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555; /* Lighter text color */
+        }
+        #main-content {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+    background-color: #ecf0f1;
+}
+
+.section-item {
+    width: 45%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+ footer {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 30px 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px; /* Space between footer columns */
+        }
+
+        .footer-col {
+            flex: 1 1 20%;
+            min-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col h2, .footer-col h3 {
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-size: 1.2em; /* Increased font size */
+        }
+
+        .footer-col p {
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer-col a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-col ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: #45a049;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #a1a1a1;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            color: #45a049;
+        }
+ @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center; /* Center align on small screens */
+                gap: 10px;
+            }
+
+            .search-bar {
+                margin-top: 10px;
+                width: 100%; /* Full width on smaller screens */
+            }
+
+            .search-bar input {
+                width: 100%; /* Full width on mobile */
+                margin: 0; /* Remove margin */
+            }
+
+            .footer-col {
+                flex: 1 1 45%; /* Adjusted width for smaller screens */
+                text-align: center; /* Center align text */
+            }
+
+            .intro {
+                margin: 10px; /* Adjust margin for small screens */
+                padding: 15px; /* Adjust padding for small screens */
+            }
+
+            .slider {
+                height: 200px; /* Reduce height of slider on smaller screens */
+            }
+        }
+
+/* Category Styling */
+.category {
+    background-color: #ecf0f1;
+    margin: 30px 0;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.category h3 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.scheme-list {
+    list-style: none;
+    padding: 0;
+}
+
+.scheme-list li {
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+#hero-image {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#hero-image img {
+    width: 80%;
+    height: auto;
+}
+
+#all-schemes {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+.category {
+    margin-bottom: 30px;
+}
+
+.scheme-item {
+    display: flex;
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.scheme-img {
+    width: 150px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.scheme-content {
+    flex-grow: 1;
+}
+
+.scheme-item h4 {
+    margin-top: 0;
+    color: #4CAF50;
+}
+
+.scheme-item p {
+    margin-bottom: 5px;
+}
+.slider {
+  width: 800px;
+  height: 400px;
+  overflow: hidden;
+}
+
+.slider img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.slider img:nth-child(1) {
+  left: 0;
+  top: 0;
+}
+
+.slider img:nth-child(2) {
+  left: 100%;
+  top: 0;
+}
+
+.slider img:nth-child(3) {
+  left: 200%;
+  top: 0;
+}
+
+/* Iframe styling */
+        /*.iframe-container {
+            height: 600px;
+            border: none;
+            width: 100%;
+            margin: 20px 0; /* Added margin for spacing */
+        }
+    </style>
+<body>
+<header>
+    <div class="logo">
+        <a href="#" style="text-decoration: none;">GovPortal</a>
+    </div>
+
+    <nav>
+        <ul id="nav-list">
+            <li class="active"><a href="index.html" target="contentFrame">Scheme Information</a></li>
+            <li><a href="services.html" target="contentFrame">Application Process</a></li>
+            
+        </ul>
+    </nav>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" placeholder="Search..." />
+        <button>Search</button>
+    </div>
+</header>
+<section class="intro">
+    <h1>Welcome to the Government Scheme Portal</h1>
+    <p>Find out more about various government schemes, eligibility criteria, and application processes to benefit from social services and financial support programs.</p>
+</section>
+
+<!-- Slider Section -->
+
+<!-- Slideshow container -->
+
+  <img src="images\IMG-20240928-WA0003.jpg" width="100%">
+ 
+
+<body>
+
+    <!-- Add Image Section -->
+    <section id="hero-image">
+        <img src="path-to-your-image.jpg" alt="Government Schemes Banner" class="hero-img">
+    </section>
+
+    <!--<section id="main-content">
+        <div class="section-item">
+            <h2>Government Schemes</h2>
+            <ul>
+                <li><strong>Pradhan Mantri Awas Yojana (PMAY)</strong> - A housing scheme to provide affordable housing for all by 2024.</li>
+                <li><strong>Swachh Bharat Mission</strong> - A campaign to clean streets, roads, and infrastructure of cities and rural areas.</li>
+                <li><strong>Pradhan Mantri Jan Dhan Yojana (PMJDY)</strong> - A financial inclusion scheme aimed at expanding affordable access to financial services like bank accounts, remittances, credit, and insurance.</li>
+                <li><strong>Ayushman Bharat</strong> - A health insurance scheme providing healthcare services to the poor and vulnerable sections of society.</li>
+                <li><strong>Atal Pension Yojana</strong> - A pension scheme targeted at unorganized sector workers to provide them financial security in old age.</li>
+                <li><strong>Mahatma Gandhi National Rural Employment Guarantee Act (MGNREGA)</strong> - A scheme that guarantees 100 days of employment in rural areas.</li>
+            </ul>
+            <a href="#all-schemes" class="learn-more">View All Schemes</a>
+        </div>
+
+        <div class="section-item">
+            <h2>Social Welfare Schemes</h2>
+            <ul>
+                <li><strong>National Social Assistance Program (NSAP)</strong> - A welfare program providing financial assistance to elderly, widows, and disabled individuals living below the poverty line.</li>
+                <li><strong>Integrated Child Development Services (ICDS)</strong> - A program aimed at providing food, preschool education, and healthcare to children under 6 years of age and their mothers.</li>
+                <li><strong>Midday Meal Scheme</strong> - A school meal program designed to improve nutritional levels among children.</li>
+                <li><strong>Beti Bachao Beti Padhao</strong> - A social campaign aiming to generate awareness and improve the efficiency of welfare services for girls.</li>
+                <li><strong>Indira Gandhi Matritva Sahyog Yojana (IGMSY)</strong> - A maternity benefit program providing cash incentives to pregnant and lactating mothers.</li>
+            </ul>
+            <a href="#all-schemes" class="learn-more">View All Welfare Schemes</a>
+        </div>
+    </section>-->
+
+    <!-- View All Schemes Section Divided by Categories -->
+    <section id="all-schemes">
+        <h2>All Government Schemes</h2>
+        <h3><p>Explore schemes divided into different categories.</p></h3>
+
+        
+       
+    <!-- Housing Schemes -->
+    <div class="category">
+        <h3>Housing Schemes</h3>
+        <div class="scheme-item">
+            <img src="images/avas.png" alt="PMAY Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Pradhan Mantri Awas Yojana (PMAY)</h4>
+                <p>Affordable housing scheme to provide homes for all by 2024.</p>
+                <p><strong>Eligibility:</strong> Low-income families.</p>
+                <p><strong>Benefits:</strong> Subsidies on housing loans.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/rajiv.png" alt="Rajiv Awas Yojana Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Rajiv Awas Yojana</h4>
+                <p>Aimed at creating a slum-free India by providing shelter and basic services.</p>
+                <p><strong>Eligibility:</strong> Urban poor households.</p>
+                <p><strong>Benefits:</strong> Access to basic amenities.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/2022.png" alt="Housing for All Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Housing for All by 2022</h4>
+                <p>Scheme to provide affordable housing to urban poor and homeless.</p>
+                <p><strong>Eligibility:</strong> Homeless individuals and families.</p>
+                <p><strong>Benefits:</strong> Financial assistance for home construction.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/subsidy.png" alt="Interest Subsidy Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Interest Subsidy Scheme</h4>
+                <p>Subsidy on interest for home loans for lower-income groups.</p>
+                <p><strong>Eligibility:</strong> Individuals from lower income groups.</p>
+                <p><strong>Benefits:</strong> Lower EMIs for housing loans.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/rural.png" alt="Rural Housing Scheme Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Rural Housing Scheme</h4>
+                <p>Aims to provide housing for rural populations through financial assistance.</p>
+                <p><strong>Eligibility:</strong> Rural households.</p>
+                <p><strong>Benefits:</strong> Grants for housing construction.</p>
+            </div>
+        </div>
+    </div>
+       <!-- Health Schemes -->
+    <div class="category">
+        <h3>Health Schemes</h3>
+        <div class="scheme-item">
+            <img src="images/ayushman.png" alt="Ayushman Bharat Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Ayushman Bharat</h4>
+                <p>Health insurance program providing coverage for economically weaker sections.</p>
+                <p><strong>Eligibility:</strong> Below Poverty Line families.</p>
+                <p><strong>Benefits:</strong> Coverage up to ₹5 lakh per family.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/janani.png" alt="Janani Suraksha Yojana Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Janani Suraksha Yojana</h4>
+                <p>Program aimed at reducing maternal mortality by promoting institutional delivery.</p>
+                <p><strong>Eligibility:</strong> Pregnant women from low-income groups.</p>
+                <p><strong>Benefits:</strong> Financial assistance for delivery and postnatal care.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/health.png" alt="National Health Mission Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>National Health Mission (NHM)</h4>
+                <p>Aims to provide accessible and affordable healthcare to all citizens.</p>
+                <p><strong>Eligibility:</strong> All citizens.</p>
+                <p><strong>Benefits:</strong> Various health services and initiatives.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/mental.png" alt="Mental Health Program Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Mental Health Program</h4>
+                <p>Provides support and resources for mental health issues.</p>
+                <p><strong>Eligibility:</strong> All individuals.</p>
+                <p><strong>Benefits:</strong> Access to counseling and treatment services.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/covid.png" alt="Vaccination Drive Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Vaccination Drive</h4>
+                <p>Nationwide vaccination programs to prevent diseases.</p>
+                <p><strong>Eligibility:</strong> All citizens.</p>
+                <p><strong>Benefits:</strong> Free vaccines for various diseases.</p>
+            </div>
+        </div>
+    </div>
+
+         <!-- Financial Inclusion Schemes -->
+    <div class="category">
+        <h3>Financial Inclusion Schemes</h3>
+        <div class="scheme-item">
+            <img src="images/jandan.png" alt="PMJDY Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Pradhan Mantri Jan Dhan Yojana (PMJDY)</h4>
+                <p>Scheme for financial inclusion to provide affordable access to financial services.</p>
+                <p><strong>Eligibility:</strong> All citizens of India.</p>
+                <p><strong>Benefits:</strong> Zero-balance accounts and insurance coverage.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/atal.png" alt="Atal Pension Yojana Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Atal Pension Yojana</h4>
+                <p>Pension scheme for unorganized sector workers to secure their financial future.</p>
+                <p><strong>Eligibility:</strong> Citizens aged 18 to 40 years.</p>
+                <p><strong>Benefits:</strong> Guaranteed pension after retirement.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/standup.png" alt="Stand-Up India Scheme Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Stand-Up India Scheme</h4>
+                <p>Facilitates loans for entrepreneurs from SC/ST and women.</p>
+                <p><strong>Eligibility:</strong> SC/ST and women entrepreneurs.</p>
+                <p><strong>Benefits:</strong> Loan between ₹10 lakhs to ₹1 crore.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/shg.png" alt="Self Help Groups Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Self Help Groups (SHG)</h4>
+                <p>Empowers women through self-managed groups for savings and loans.</p>
+                <p><strong>Eligibility:</strong> Women in rural areas.</p>
+                <p><strong>Benefits:</strong> Access to credit and financial literacy.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/micro.png" alt="Microfinance Scheme Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Microfinance Scheme</h4>
+                <p>Provides small loans to entrepreneurs for starting small businesses.</p>
+                <p><strong>Eligibility:</strong> Low-income individuals.</p>
+                <p><strong>Benefits:</strong> Financial support for business ventures.</p>
+            </div>
+        </div>
+    </div>
+
+
+           <!-- Employee Schemes -->
+    <div class="category">
+        <h3>Employee Schemes</h3>
+        <div class="scheme-item">
+            <img src="images/epf.png" alt="Employee Provident Fund Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Employee Provident Fund (EPF)</h4>
+                <p>Savings scheme for employees to secure their retirement.</p>
+                <p><strong>Eligibility:</strong> Employees working in organized sectors.</p>
+                <p><strong>Benefits:</strong> Contribution from employers and tax benefits.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/esic.png" alt="Employee State Insurance Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Employee State Insurance (ESI)</h4>
+                <p>Social security scheme providing medical and cash benefits.</p>
+                <p><strong>Eligibility:</strong> Employees earning below a specified limit.</p>
+                <p><strong>Benefits:</strong> Medical care and financial support during sickness.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/nps.png" alt="National Pension Scheme Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>National Pension Scheme (NPS)</h4>
+                <p>Pension scheme for employees in public and private sectors.</p>
+                <p><strong>Eligibility:</strong> Any citizen aged 18-65 years.</p>
+                <p><strong>Benefits:</strong> Regular pension after retirement.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/1972.png" alt="Gratuity Act Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Payment of Gratuity Act</h4>
+                <p>Ensures payment of gratuity to employees after a certain period of service.</p>
+                <p><strong>Eligibility:</strong> Employees with a service of 5 years or more.</p>
+                <p><strong>Benefits:</strong> Lump sum amount upon retirement or termination.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/skilll.png" alt="Skill Development Program Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Skill Development Program</h4>
+                <p>Enhances employability of workers through skill training.</p>
+                <p><strong>Eligibility:</strong> Unemployed youth and workers.</p>
+                <p><strong>Benefits:</strong> Free training and job placement support.</p>
+            </div>
+        </div>
+    </div>
+        <!-- Education Schemes -->
+    <div class="category">
+        <h3>Education Schemes</h3>
+        <div class="scheme-item">
+            <img src="images/mmm.png" alt="Scholarship Scheme Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>National Means-cum-Merit Scholarship Scheme</h4>
+                <p>Scholarship for students from economically weaker sections.</p>
+                <p><strong>Eligibility:</strong> Class 9 to 12 students.</p>
+                <p><strong>Benefits:</strong> Financial assistance for education.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/mid.png" alt="Mid-Day Meal Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Mid-Day Meal Scheme</h4>
+                <p>Provides free meals to students in schools to enhance enrollment and attendance.</p>
+                <p><strong>Eligibility:</strong> Students in primary and upper primary schools.</p>
+                <p><strong>Benefits:</strong> Nutritional support and improved learning outcomes.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/Right.png" alt="Right to Education Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Right to Education (RTE)</h4>
+                <p>Ensures free and compulsory education for children aged 6 to 14 years.</p>
+                <p><strong>Eligibility:</strong> All children in the specified age group.</p>
+                <p><strong>Benefits:</strong> Access to quality education.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/india.png" alt="Skill Development in Education Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Skill India Mission</h4>
+                <p>Aims to train youth in various skills to enhance employability.</p>
+                <p><strong>Eligibility:</strong> Youth seeking vocational training.</p>
+                <p><strong>Benefits:</strong> Skill training and job opportunities.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/digital.png" alt="Digital Education Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Digital India Initiative</h4>
+                <p>Promotes digital literacy and access to technology in education.</p>
+                <p><strong>Eligibility:</strong> All students and educational institutions.</p>
+                <p><strong>Benefits:</strong> Access to online resources and e-learning platforms.</p>
+            </div>
+        </div>
+    </div>
+
+       
+    <!-- Agriculture Schemes -->
+    <div class="category">
+        <h3>Agriculture Schemes</h3>
+        <div class="scheme-item">
+            <img src="images/fasal.png" alt="Fasal Bima Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Pradhan Mantri Fasal Bima Yojana</h4>
+                <p>Crop insurance scheme to support farmers in case of crop failure.</p>
+                <p><strong>Eligibility:</strong> All farmers.</p>
+                <p><strong>Benefits:</strong> Coverage against crop loss due to natural calamities.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/soil.png" alt="Soil Health Card Image" height="px" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Soil Health Card Scheme</h4>
+                <p>Promotes sustainable farming by assessing soil health.</p>
+                <p><strong>Eligibility:</strong> All farmers.</p>
+                <p><strong>Benefits:</strong> Soil health cards for informed farming practices.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/krishi.png" alt="Krishi Sinchai Yojana Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Pradhan Mantri Krishi Sinchai Yojana</h4>
+                <p>Aims to ensure access to irrigation for all farmers.</p>
+                <p><strong>Eligibility:</strong> All farmers.</p>
+                <p><strong>Benefits:</strong> Efficient irrigation systems and facilities.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/Mission.png" alt="National Mission for Sustainable Agriculture Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>National Mission for Sustainable Agriculture</h4>
+                <p>Aims to promote sustainable agricultural practices.</p>
+                <p><strong>Eligibility:</strong> Farmers adopting sustainable practices.</p>
+                <p><strong>Benefits:</strong> Financial assistance and training.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/godown.png" alt="Rural Godown Scheme Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Grain Storage Schemes (Rural Godown Scheme)</h4>
+                <p>Encourages farmers to store grains to prevent post-harvest losses.</p>
+                <p><strong>Eligibility:</strong> Farmers and cooperatives.</p>
+                <p><strong>Benefits:</strong> Subsidies for construction of storage facilities.</p>
+            </div>
+        </div>
+    </div>
+       <!-- Women Empowerment Schemes -->
+    <div class="category">
+        <h3>Women Empowerment Schemes</h3>
+        <div class="scheme-item">
+            <img src="images/beti.png" alt="Beti Bachao Beti Padhao Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Beti Bachao Beti Padhao</h4>
+                <p>Aims to save and educate the girl child, promoting gender equality.</p>
+                <p><strong>Eligibility:</strong> Families with daughters.</p>
+                <p><strong>Benefits:</strong> Financial assistance for education.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/haat.png" alt="Mahila E-Haat Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Mahila E-Haat</h4>
+                <p>Online marketing platform for women entrepreneurs to sell their products.</p>
+                <p><strong>Eligibility:</strong> Women entrepreneurs.</p>
+                <p><strong>Benefits:</strong> Access to a wider market and online presence.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/beti.png" alt="Sukanya Samriddhi Yojana Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Sukanya Samriddhi Yojana</h4>
+                <p>Saving scheme for the girl child to promote her education and marriage.</p>
+                <p><strong>Eligibility:</strong> Parents of girl children.</p>
+                <p><strong>Benefits:</strong> Tax benefits and attractive interest rates.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/nari.png" alt="Nari Shakti Yojana Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Nari Shakti Yojana</h4>
+                <p>Aims to empower women through various initiatives and programs.</p>
+                <p><strong>Eligibility:</strong> Women from all backgrounds.</p>
+                <p><strong>Benefits:</strong> Skill development and financial support.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="aadhar card.png" alt="Stree Aadhar Card Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Stree Aadhar Card Scheme</h4>
+                <p>Empowers women by providing them with a unique identity card for various benefits.</p>
+                <p><strong>Eligibility:</strong> Women from disadvantaged backgrounds.</p>
+                <p><strong>Benefits:</strong> Access to government schemes and services.</p>
+            </div>
+        </div>
+    </div>
+
+
+         <!-- Entrepreneurship Schemes -->
+    <div class="category">
+        <h3>Entrepreneurship Schemes</h3>
+        <div class="scheme-item">
+            <img src="images/make.png" alt="Make in India Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Make in India</h4>
+                <p>A government initiative to encourage manufacturing and entrepreneurship in India.</p>
+                <p><strong>Eligibility:</strong> All Indian entrepreneurs.</p>
+                <p><strong>Benefits:</strong> Financial support and infrastructure development.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/udhyog.png" alt="Udyogini Scheme Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Udyogini Scheme</h4>
+                <p>Promotes women entrepreneurship by providing financial assistance and training.</p>
+                <p><strong>Eligibility:</strong> Women entrepreneurs.</p>
+                <p><strong>Benefits:</strong> Loans and business development support.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/msme.png" alt="MSME Development Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>MSME Development Scheme</h4>
+                <p>Supports Micro, Small, and Medium Enterprises through financial and technical assistance.</p>
+                <p><strong>Eligibility:</strong> MSMEs in India.</p>
+                <p><strong>Benefits:</strong> Subsidies and access to credit.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/standup.png" alt="Stand-Up India Scheme Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Stand-Up India Scheme</h4>
+                <p>Provides loans to Scheduled Castes (SC), Scheduled Tribes (ST), and women entrepreneurs.</p>
+                <p><strong>Eligibility:</strong> SC/ST and women entrepreneurs.</p>
+                <p><strong>Benefits:</strong> Loans between ₹10 lakh to ₹1 crore.</p>
+            </div>
+        </div>
+        <div class="scheme-item">
+            <img src="images/up.png" alt="Startup India Image" class="scheme-img">
+            <div class="scheme-content">
+                <h4>Startup India</h4>
+                <p>A scheme to promote innovation and entrepreneurship among startups.</p>
+                <p><strong>Eligibility:</strong> Startups registered under the scheme.</p>
+                <p><strong>Benefits:</strong> Tax exemptions, funding, and mentorship.</p>
+            </div>
+        </div>
+    </div>
+    </section>
+
+
+
+<!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h2>Services</h2>
+                <ul>
+                    <li><a href="#">Application Assistance</a></li>
+                    <li><a href="#">Information Resources</a></li>
+                    <li><a href="#">Customer Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h2>About Us</h2>
+                <p>We are dedicated to providing the most accurate information on government schemes.</p>
+                <ul>
+                    <li><a href="#">Our Mission</a></li>
+                    <li><a href="#">Our Team</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h2>Connect With Us</h2>
+                <p>Follow us on social media for updates.</p>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h2>Legal</h2>
+                <ul>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Government Scheme Portal. All Rights Reserved.</p>
+        <p><a href="#">Back to top</a></p>
+    </div>
+</footer>
+
+</body>
